@@ -2,8 +2,11 @@
 // inspired from : https://stackoverflow.com/a/57399634
 namespace algorithms {
 
-template<typename Container>
-void translocate_element(Container&, typename Container::iterator current_location, typename Container::iterator new_location)
+template<typename Iterator>
+void translocate(
+    Iterator current_location,
+    Iterator new_location
+)
 {
     if (current_location > new_location)
     {
