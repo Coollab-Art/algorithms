@@ -13,14 +13,14 @@ void translocate(
         std::rotate(
             new_location,
             current_location,
-            current_location + 1
+            std::next(current_location)
         );
     }
     else
     {
         std::rotate(
-            std::make_reverse_iterator(new_location) - 1,
-            std::make_reverse_iterator(current_location) - 1,
+            std::prev(std::make_reverse_iterator(new_location)),
+            std::prev(std::make_reverse_iterator(current_location)),
             std::make_reverse_iterator(current_location)
         );
     }
