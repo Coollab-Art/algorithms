@@ -1,5 +1,8 @@
 #pragma once
 
+#include <algorithm>
+#include <iterator>
+
 // Inspired from https://stackoverflow.com/a/57399634
 
 namespace algorithms {
@@ -12,7 +15,7 @@ void translocate(
     Iterator new_location
 )
 {
-    if (current_location > new_location)
+    if (std::distance(current_location, new_location) < 0)
     {
         std::rotate(
             new_location,
