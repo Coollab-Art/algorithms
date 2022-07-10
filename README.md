@@ -19,7 +19,7 @@ Then include it as:
 
 Moves an element in a container from its current position to a new one.
 The order of the other elements is preserved.
-It could be any kind of container. 
+It works with vector and array. 
 Its parameters are the iterator of the current and the new position.
 
 **Example:**
