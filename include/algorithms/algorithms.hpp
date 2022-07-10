@@ -1,7 +1,11 @@
 #pragma once
-// inspired from : https://stackoverflow.com/a/57399634
+
+// Inspired from https://stackoverflow.com/a/57399634
+
 namespace algorithms {
 
+/// Moves an element in a container from its current position to a new one.
+/// The order of the other elements is preserved.
 template<typename Iterator>
 void translocate(
     Iterator current_location,
