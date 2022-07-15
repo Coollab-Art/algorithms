@@ -13,19 +13,15 @@ Then include it as:
 #include <algorithms/algorithms.hpp>
 ```
 
-## Algorithms
+## Documentation
 
 ### `translocate()`
 
 Moves an element in a container from its current position to a new one.
-The order of the other elements is preserved.
-It works with vector and array. 
-Its parameters are the iterator of the current and the new position.
-
-**Example:**
+The order of the other elements is preserved.<br/>
+It takes two iterators, pointing to the current and new locations:
 
 ```cpp
-
 auto vec = std::vector<int>{0, 1, 2, 3, 4};
 
 algorithms::translocate(
@@ -33,6 +29,7 @@ algorithms::translocate(
     vec.begin() + 2
 );
 
+// vec is now {0, 1, 4, 2, 3}
 ```
-You get : {0, 1, 4, 2, 3}
-The 4th element has been moved to the 2nd position.
+
+⚠️ *This currently doesn't work for `std::list`.*
