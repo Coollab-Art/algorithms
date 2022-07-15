@@ -7,7 +7,6 @@
 // Check out doctest's documentation: https://github.com/doctest/doctest/blob/master/doc/markdown/tutorial.md
 
 // Allow doctest to print std::vectors
-
 template<typename Container>
 doctest::String toString(const Container& values)
 {
@@ -22,8 +21,10 @@ doctest::String toString(const Container& values)
 TYPE_TO_STRING(std::vector<int>);
 TYPE_TO_STRING(std::array<int, 5>);
 
-// TODO templatized test on vecor, list etc.
-TEST_CASE_TEMPLATE("translocate_element() moves one element from one place to another in a container", Container, std::vector<int>, std::array<int, 5>)
+TEST_CASE_TEMPLATE(
+    "translocate() moves an element from one place to another in a container",
+    Container, std::vector<int>, std::array<int, 5>
+)
 {
     auto container = Container{0, 1, 2, 3, 4};
 
