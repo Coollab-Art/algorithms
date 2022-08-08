@@ -33,3 +33,8 @@ algorithms::translocate(
 ```
 
 ⚠️ *This currently doesn't work for `std::list`.*
+
+## Running the tests
+
+Simply use "tests/CMakeLists.txt" to generate a project, then run it.<br/>
+If you are using VSCode and the CMake extension, this project already contains a *.vscode/settings.json* that will use the right CMakeLists.txt automatically.
