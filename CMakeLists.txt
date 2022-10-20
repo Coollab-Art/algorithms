@@ -10,14 +10,19 @@ target_sources(algorithms PRIVATE
     src/algorithms.cpp
 )
 
-# ---Setup warnings---
-if (ALGORITHMS_ENABLE_WARNINGS_AS_ERRORS)
-    message("-- [algorithms] Enabling warnings as errors for algorithms")
-    if(MSVC)
-        target_compile_options(algorithms PRIVATE /WX /W4)
-    else()
-        target_compile_options(algorithms PRIVATE -Werror -Wall -Wextra -Wpedantic -pedantic-errors -Wconversion -Wsign-conversion)
-    endif()
+# Set warning level
+if(MSVC)
+    target_compile_options(algorithms PRIVATE /W4)
 else()
-    message("-- [algorithms] Not using warnings as errors for algorithms")
+    target_compile_options(algorithms PRIVATE -Wall -Wextra -Wpedantic -pedantic-errors -Wconversion -Wsign-conversion)
+endif()
+
+# Maybe enable warnings as errors
+set(WARNINGS_AS_ERRORS_FOR_ALGORITHMS OFF CACHE BOOL "ON iff you want to treat warnings as errors")
+if(WARNINGS_AS_ERRORS_FOR_ALGORITHMS)
+    if(MSVC)
+        target_compile_options(algorithms PRIVATE /WX)
+    else()
+        target_compile_options(algorithms PRIVATE -Werror)
+    endif()
 endif()
