@@ -2,6 +2,4 @@
 
 namespace algorithms {
 
-
-    
 } // namespace algorithms
