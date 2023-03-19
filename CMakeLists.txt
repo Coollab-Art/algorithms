@@ -7,15 +7,13 @@ add_library(algorithms::algorithms ALIAS algorithms)
 target_compile_features(algorithms PUBLIC cxx_std_20)
 
 # ---Add source files---
-target_sources(algorithms PRIVATE
-    src/algorithms.cpp
-)
-
 if(WARNINGS_AS_ERRORS_FOR_ALGORITHMS)
     target_include_directories(algorithms PUBLIC include)
 else()
     target_include_directories(algorithms SYSTEM PUBLIC include)
 endif()
+
+target_sources(algorithms PRIVATE src/algorithms.cpp)
 
 # Set warning level
 if(MSVC)
@@ -25,7 +23,6 @@ else()
 endif()
 
 # Maybe enable warnings as errors
-set(WARNINGS_AS_ERRORS_FOR_ALGORITHMS OFF CACHE BOOL "ON iff you want to treat warnings as errors")
 if(WARNINGS_AS_ERRORS_FOR_ALGORITHMS)
     if(MSVC)
         target_compile_options(algorithms PRIVATE /WX)
